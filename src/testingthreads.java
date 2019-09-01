@@ -1,3 +1,7 @@
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.jointheleague.graphical.robot.Robot;
 
 public class testingthreads {
@@ -13,5 +17,17 @@ public class testingthreads {
 		dos.move(400);
 		});
 		r1.start();r2.start();
+		try {
+			FileReader fr = new FileReader("src/dictionary.txt");
+			int c = fr.read();
+			while(c==-1) {
+				System.out.println((char)(c));
+				c = fr.read();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 }
 }
